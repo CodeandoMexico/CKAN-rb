@@ -33,6 +33,15 @@ The gem is available at rubygems.org, so you can install it with:
   # Optionally, set the base API url
   CKAN::API.api_base = "...your CKAN API URL ..."
 
+  # Action API http://docs.ckan.org/en/latest/api/index.html#action-api-reference
+
+  # API functions for searching for and getting data from CKAN.
+  CKAN::Action.action_get("organization_list", { "all_fields" => "true" })
+
+  # API functions for adding data to CKAN.
+  CKAN::Action.action_create("resource_create", api_key, {"name" => "name", "package_id" => "package", "url" => "http://ckan.org" })
+  # If :upload is present it will upload th file eg. :upload => File.new("file.csv)
+
   # get all CKAN packages
   packages = CKAN::Package.find
 
