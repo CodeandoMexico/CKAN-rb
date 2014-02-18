@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "ckan"
 
-  s.add_runtime_dependency "rest_client", "~> 1.6.0"
+  s.add_runtime_dependency "rest-client", "~> 1.6.0"
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rspec", "~> 2.9.0"
   s.add_development_dependency "vcr", "~> 2.0.0"
