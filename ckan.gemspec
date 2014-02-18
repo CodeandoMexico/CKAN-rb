@@ -5,8 +5,8 @@ Gem::Specification.new do |s|
   s.name        = "ckan"
   s.version     = CKAN::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Aleksander Pohl"]
-  s.email       = ["apohllo@o2.pl"]
+  s.authors     = ["Aleksander Pohl", "Adrian Rangel"]
+  s.email       = ["apohllo@o2.pl", "adrian.rangel@codeandomexico.org"]
   s.homepage    = "http://github.com/apohllo/ckan"
   s.summary     = "Ruby Client for Comprehensive Knowledge Archive Network"
   s.description = "Ruby Client for Comprehensive Knowledge Archive Network. Allows for querying the CKAN repository using REST API"
@@ -14,6 +14,7 @@ Gem::Specification.new do |s|
   s.required_rubygems_version = ">= 1.3.6"
   s.rubyforge_project         = "ckan"
 
+  s.add_runtime_dependency "rest_client", "~> 1.6.0"
   s.add_development_dependency "bundler", ">= 1.0.0"
   s.add_development_dependency "rspec", "~> 2.9.0"
   s.add_development_dependency "vcr", "~> 2.0.0"
