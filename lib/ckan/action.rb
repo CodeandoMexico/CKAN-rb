@@ -4,13 +4,18 @@ module CKAN
     #all get actions
     ## ckan.logic.action.get.organization_list
     def self.action_get(action, options_hash={}, api_key="")
-      response = RestClient.get(
-        "#{CKAN::API.api_url}/action/#{action}",
-        :params => options_hash,
-        "Authorization" => api_key,
-        "X-CKAN-API-Key" => api_key
-      )
-      JSON.parse(response)
+      uri = URI("#{CKAN::API.api_url}/action/#{action}")
+      uri.query = URI.encode_www_form(options_hash)
+
+      req = Net::HTTP::Get.new(uri)
+      req["Authorization"] = api_key
+      req["X-CKAN-API-Key"] = api_key
+
+      res = Net::HTTP.start(uri.hostname, uri.port) {|http|
+        http.request(req)
+      }
+
+      JSON.parse(res.body)
     end
 
     #all create actions
